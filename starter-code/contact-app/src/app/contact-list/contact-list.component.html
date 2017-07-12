@@ -1,18 +1,40 @@
+<section class="form">
+
+  <img class="contact" src="https://www.techmesto.com/wp-content/uploads/2016/06/contacts-icon-14474.png" alt="">
+
+<div class='input-form'>
 <div>
-  <label for="contact-name"></label>
+  <label for="contact-name">Name:</label>
   <input type="text" [(ngModel)]="newContact.name">
 </div>
 <div>
-  <label for="contact-email"></label>
+  <label for="contact-email">Email:</label>
   <input type="text" [(ngModel)]="newContact.email">
 </div>
 <div>
-  <label for="contact-phone"></label>
+  <label for="contact-phone">Phone:</label>
   <input type="text" [(ngModel)]="newContact.phoneNumber">
 </div>
 <div>
-  <label for="contact-image"></label>
+  <label for="contact-image">PicUrl:</label>
   <input type="text" [(ngModel)]="newContact.image">
 </div>
+<br>
+<button (click)="addContact()">Submit New Contact</button>
+</div>
+</section>
 
-<button (click)="addContact">Submit New Contact</button>
+<section class="contacts">
+  <h2>CONTACT LIST</h2>
+  <ul>
+    <div class="eachContact" *ngFor="let oneContact of contacts">
+      <li>
+      <h3>{{oneContact.name}}</h3>
+      <p>{{oneContact.email}}</p>
+      <p>{{oneContact.phoneNumber}}</p>
+      <img [src]="oneContact.image" style="height:200px">
+
+    </li>
+  </div>
+  </ul>
+</section>
